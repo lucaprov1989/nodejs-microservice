@@ -1,0 +1,47 @@
+openapi: 3.0.0
+info:
+  version: 0.0.1
+  title: Todo
+  description: A service to handle blockchain, chats and off chain metadata
+paths:
+  /health:
+    get:
+      tags:
+        - health
+      summary: Get health check
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                properties:
+                  env:
+                    type: string
+                    example: production
+                  version:
+                    type: string
+                    example: "0.0.1"
+
+components:
+  parameters:
+    limit:
+      in: query
+      name: limit
+      schema:
+        example: 10
+        type: integer
+    skip:
+      in: query
+      name: skip
+      schema:
+        example: 10
+        type: integer
+    sort:
+      in: query
+      name: sort
+      schema:
+        example: createdAt
+        type: string
+
+  schemas:
